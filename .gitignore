@@ -5,5 +5,4 @@
 /.idea/jarRepositories.xml
 /.idea/misc.xml
 /.idea/vcs.xml
-/target/classes/com/tanmoy/weatherapi/WeatherApiApplication.class
-/target/vaadin-dev-server-settings.json
+/target/
