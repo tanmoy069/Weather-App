@@ -2,8 +2,8 @@ package com.tanmoy.weatherapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.tanmoy.weatherapi.dto.WeatherResponseDto;
-import com.tanmoy.weatherapi.entity.Cities;
-import com.tanmoy.weatherapi.repository.CitiesRepository;
+import com.tanmoy.weatherapi.entity.City;
+import com.tanmoy.weatherapi.repository.CityRepository;
 import com.tanmoy.weatherapi.service.WeatherService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,21 +16,21 @@ import java.util.List;
 class WeatherApiApplicationTests {
 
 	@Autowired
-	private CitiesRepository citiesRepository;
+	private CityRepository cityRepository;
 
 	@Autowired
 	private WeatherService weatherService;
 
 	@Test
 	void testCitiesList() {
-		List<Cities> citiesList = citiesRepository.findAll();
+		List<City> citiesList = cityRepository.findAll();
 		Assertions.assertNotEquals(0, citiesList.size());
 	}
 
 	@Test
 	void testWeatherDetailsGetByLatLng() throws JsonProcessingException {
-		List<Cities> citiesList = citiesRepository.findAll();
-		Cities cities = citiesList.get(0);
+		List<City> citiesList = cityRepository.findAll();
+		City cities = citiesList.get(0);
 		WeatherResponseDto responseDto = weatherService.getWeatherDetailsByLatLng(cities.getLatitude(), cities.getLongitude());
 		System.out.println(responseDto);
 		Assertions.assertEquals((int) responseDto.getLatitude(), (int) cities.getLatitude());
