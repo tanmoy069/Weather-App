@@ -13,5 +13,7 @@ public class WeatherResponseDto {
     private double longitude;
     private String timezone;
     private CurrentWeatherDto current_weather;
+    private Units hourly_units;
+    private WeatherDetailsHourlyDto hourly;
 
 }
